@@ -1,17 +1,54 @@
 <!DOCTYPE html>
 <html>
-<body>
-
-<p id="demo">Let's solve a 15 puzzle!</p>
-
-<button onclick="shuffle()">Shuffle!</button>
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 <script src="keys.js"></script>
 
-<p>Use either the buttons or the directional keys on your keyboard.</p>
-<button onclick="moveUp()">Up</button>
-<button onclick="moveDown()">Down</button>
-<button onclick="moveLeft()">Left</button>
-<button onclick="moveRight()">Right</button>
+<head>
+<link rel="stylesheet" href="style.css" media="all">
+</head>
+<body onload="myFunction()">
+    <div class="centered">
+		<img src="banner.png"></img>
+		<hr>
+		<div class="row-fluid">
+			<div class="span1">
+				<div id="a0"></div>
+				<div id="b0"></div>
+				<div id="c0"></div>
+				<div id="d0"></div>
+			</div>
+			<div class="span1">
+				<div id="a1"></div>
+				<div id="b1"></div>
+				<div id="c1"></div>
+				<div id="d1"></div>
+			</div>
+			<div class="span1">
+				<div id="a2"></div>
+				<div id="b2"></div>
+				<div id="c2"></div>
+				<div id="d2"></div>
+			</div>
+			<div class="span1">
+				<div id="a3"></div>
+				<div id="b3"></div>
+				<div id="c3"></div>
+				<div id="d3"></div>
+			</div>
+			<div class="span8">
+				
+
+				<h3>Use the Buttons or your directional keys.</h3>
+
+				<center><button onclick="moveUp()"> ^ </button></br></center>
+				<center><button onclick="moveLeft()"> < </button>
+				<button onclick="moveDown()">v</button>
+				<button onclick="moveRight()">></button></center></br>
+				<center><button onclick="shuffle()">New!</button></center>
+			</div>
+		</div>
+		<hr>
+    </div>
 </body>
 </html>
-
