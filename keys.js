@@ -43,12 +43,6 @@ function concat() {
 }
 
 function myFunction() {
-	
-	/*
-	var v = isCorrect();
-	if(v==16) { alert("nice job");} */
-	
-	
 	var a0=document.getElementById("a0"); a0.innerHTML="<h1>"+ puzzle[0]+"</h1>";
 	var a1=document.getElementById("a1"); a1.innerHTML="<h1>"+ puzzle[1]+"</h1>";
 	var a2=document.getElementById("a2"); a2.innerHTML="<h1>"+ puzzle[2]+"</h1>";
@@ -68,7 +62,13 @@ function myFunction() {
 	var d1=document.getElementById("d1"); d1.innerHTML="<h1>"+ puzzle[13]+"</h1>";
 	var d2=document.getElementById("d2"); d2.innerHTML="<h1>"+ puzzle[14]+"</h1>";
 	var d3=document.getElementById("d3"); d3.innerHTML="<h1>"+ puzzle[15]+"</h1>";
+	
+	var v = isCorrect();
+	if(v==16 && numMoves > 0) { alert("You solved the puzzle in "+numMoves+" moves!"); d3.innerHTML="<h1>"+"F</h1>";numMoves=0;} 
+
 }
+
+var numMoves=0;
 
 function moveLeft() {
 	if(empty!=3 && empty!=7 && empty!=11 && empty!=15){
@@ -77,6 +77,7 @@ function moveLeft() {
 		puzzle[empty] = temp;
 		empty++;
 		myFunction();
+		numMoves++;
 	}
 }
 
@@ -87,6 +88,7 @@ function moveRight() {
 		puzzle[empty] = temp;
 		empty--;
 		myFunction();
+		numMoves++;
 	}
 }
 
@@ -97,6 +99,7 @@ function moveUp() {
 		puzzle[empty] = temp;
 		empty+=4;
 		myFunction();
+		numMoves++;
 	}
 }
 
@@ -107,10 +110,12 @@ function moveDown() {
 		puzzle[empty] = temp;
 		empty-=4;
 		myFunction();
+		numMoves++;
 	}
 }
 
 function shuffle() {
+	numMoves=0;
 	for(var i=0; i < 500; ++i) {
 		var rand = Math.floor(Math.random()*4); 
 		if(rand==0){moveLeft();}
